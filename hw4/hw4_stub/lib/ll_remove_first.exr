@@ -1,0 +1,18 @@
+
+(* Remove First exercise 1 *)
+
+let l1 = { head <= 0; size <= 0} (* 0 in head signals null *)
+in let add_front = proc (x) { proc (l) {
+   	      begin
+	         l.head <={ data <=x; next <= l.head };
+		 l.size <= l.size+1
+              end
+	      } }
+in let remove_first = (* complete *)
+in begin
+     ((add_front 2) l1);
+     ((add_front 3) l1);
+     ((add_front 4) l1);
+     (remove_first l1);
+     debug(l1)  (* required inspect the list *)
+   end

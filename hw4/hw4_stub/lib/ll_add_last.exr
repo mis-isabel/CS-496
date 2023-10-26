@@ -1,0 +1,16 @@
+
+(* Add Last exercise *)
+
+let l1 = { head <= 0; size <= 0} (* 0 in head signals null *)
+in letrec add_last_helper(nd) = proc (key) {
+                 if number?(nd.next)
+		 then nd.next <= { data <=key; next <= 0 }
+	         else ((add_last_helper nd.next) key)
+	      } 
+in let add_last = (* implement *)
+in begin
+     ((add_last l1) 2);
+     ((add_last l1) 3);
+     ((add_last l1) 4);
+     debug(l1)  (* required inspect the list *)
+   end

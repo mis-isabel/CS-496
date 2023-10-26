@@ -1,0 +1,34 @@
+(* Add exercise 3 
+Isabel Sutedjo and Sean Payba*)
+
+let n_left = { data <= 12; left <= 0; right <= 0}    (* 0 in head signals null *)
+in let n_right = { data <= 44; left <= 0; right <= 0}
+in let n_root = { data <= 33; left <= n_left ; right <= n_right }
+in let t1 = { root <= n_root ; size <= 3} 
+in letrec help (knode) = proc (n) {
+  if (number?(knode)) 
+  then 
+    {data <= n; left <= 0; right <= 0}
+  else 
+    if (knode.data >> n)
+    then
+      begin
+      knode.right <= ((help knode.left) n);
+      knode
+      end
+    else
+      if (knode.data << n)
+      then
+        begin
+        knode.left <= ((help knode.left) n);
+        knode
+        end
+      else
+      0
+}
+in let add_bt = proc (t) { proc (val) { ((help t.root) val) } }
+in begin
+     ((add_bt t1) 23);
+     t1.size <= t1.size+1;
+     debug(t1)        
+   end

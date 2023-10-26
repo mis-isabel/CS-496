@@ -1,0 +1,14 @@
+(* class declarations *)
+
+class c extends object {
+}
+
+class d extends c {
+}
+
+class e extends c {
+}
+
+(* main expression *)
+let o=new d()
+in instanceof?(o,d)

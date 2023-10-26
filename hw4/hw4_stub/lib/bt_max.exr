@@ -1,0 +1,16 @@
+(* Max exercise 
+Isabel Sutedjo and Sean Payba*)
+
+let n_left = { data <= 12; left <= 0; right <= 0 }   
+in let n_right = { data <= 44; left <= 0; right <= 0 }
+in let n_root = { data <= 33; left <= n_left ; right <= n_right }
+in let t1 = { root <= n_root ; size <= 3 }
+
+in letrec help (knode) =
+    (if number?(knode.right)
+    then knode.data
+    else (help (knode.right)))
+
+in let max_bt = proc (t) {(help t.root)}
+
+in (max_bt t1)

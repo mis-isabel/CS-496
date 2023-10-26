@@ -1,0 +1,18 @@
+
+
+
+(library
+ (name explicit_refs_mf)        ; name of the opam library
+ (libraries parser_plaf)
+ (public_name explicit_refs_mf) ; required for generating documentation
+ (synopsis "Interpreter for explicit-refs-mf")
+ ;; (wrapped      false) ; true by default
+ )
+
+; the next line avoids warnings from stopping the build
+
+(env
+ (dev
+  (flags
+   (:standard -warn-error -A))))
+
